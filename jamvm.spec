@@ -8,7 +8,9 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	7f5c459d6b900e0c8248900ab007289e
 Patch0:		%{name}-libdir.patch
+Patch1:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
+BuildRequires:	autoconf
 Requires:	classpath >= 0.09
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,8 +46,12 @@ Plik nag³ówkowy dla Java Native Interface.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
+%{__aclocal}
+%{__autoconf}
+
 %configure \
 	--with-classpath_install_dir=%{_prefix}
 
