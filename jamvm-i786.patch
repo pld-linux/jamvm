@@ -1,0 +1,11 @@
+--- configure.in.orig	2004-09-03 09:54:50.000000000 +0200
++++ configure.in	2004-10-14 15:03:32.546616384 +0200
+@@ -61,7 +61,7 @@
+ AC_CANONICAL_HOST
+ 
+ case "$host_cpu" in
+-i[[456]]86) host_cpu=i386 ;;
++i[[4567]]86) host_cpu=i386 ;;
+ arm*) host_cpu=arm ;;
+ powerpc) ;;
+ *) AC_MSG_ERROR($host_cpu not supported) ;;
