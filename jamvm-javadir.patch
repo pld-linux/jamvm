@@ -14,7 +14,7 @@
  with_classpath_install_dir = @with_classpath_install_dir@
 -GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
 +GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
- SUBDIRS = jamvm java
+ SUBDIRS = jamvm java gnu
  EXTRA_DIST = classes.zip README
  noinst_DATA = inst_classes.zip
 --- jamvm-1.2.3/src/class.c.orig	2004-12-24 03:02:53.000000000 +0100
