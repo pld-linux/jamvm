@@ -1,0 +1,66 @@
+Summary:	A small Java Virtual Machine
+Summary(pl):	Mała maszyna wirtualna Javy (JVM)
+Name:		jamvm
+Version:	1.1.4
+Release:	0.1
+License:	GPL
+Group:		Applications/System
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	7c744203de229871233f41f84da8ac07
+URL:		http://jamvm.sourceforge.net/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+JamVM is a new Java Virtual Machine which conforms to the JVM
+specification version 2 (blue book).  In comparison to most other
+VM's (free and commercial) it is extremely small, with a stripped
+executable on PowerPC of only ~110K, and Intel 80K.  However, unlike
+other small VMs (e.g. KVM) it is designed to support the full
+specification, and includes support for object finalisation, the
+Java Native Interface (JNI) and the Reflection API.
+
+%description -l pl
+JamVM jest nową maszyną wirtualną Javy (JVM) zgodną z 2. wersją
+specyfikacji JVM (niebieska księga). W porównaniu do większości innych
+VM (darmowych i komercyjnych) jest ekstremalnie mała, plik wykonywalny
+zajmuje na PowerPC jedynie ~110 kB, na Intelu 80 kB. Tym niemniej, w
+odróżnieniu od innych małych VM (np. KVM) jest zaprojektowana aby
+obsługiwać pełną specyfikację, włączając w to finalizację obiektów,
+Java Native Interface i Reflection API.
+
+%package devel
+Summary:	JNI development header file
+Summary(pl):	Plik nagłówkowy dla JNI
+Group:		Development/Languages/Java
+
+%description devel
+Java Native Interface development header file.
+
+%description devel -l pl
+Plik nagłówkowy dla Java Native Interface.
+
+%prep
+%setup -q
+
+%build
+%configure
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc ACKNOWLEDGEMENTS AUTHORS NEWS README
+%attr(755,root,root) %{_bindir}/*
+%{_datadir}/%{name}
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/*
