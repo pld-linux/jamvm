@@ -1,19 +1,18 @@
 Summary:	A small Java Virtual Machine
 Summary(pl):	Ma³a maszyna wirtualna Javy (JVM)
 Name:		jamvm
-Version:	1.2.0
-Release:	3
+Version:	1.2.3
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	7f5c459d6b900e0c8248900ab007289e
-# Source0-size:	223930
+# Source0-md5:	b46e9d94d9d79156670740d3532fb727
 Patch0:		%{name}-libdir.patch
 Patch1:		%{name}-javadir.patch
 Patch2:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
 BuildRequires:	autoconf
-Requires:	classpath >= 0.09
+Requires:	classpath >= 0.12
 ExclusiveArch:	arm i486 i586 i686 pentium3 pentium4 athlon ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
