@@ -1,33 +1,30 @@
-diff -uNr jamvm-1.2.0.orig/lib/Makefile.am jamvm-1.2.0/lib/Makefile.am
---- jamvm-1.2.0.orig/lib/Makefile.am	2004-08-18 21:54:02.000000000 +0200
-+++ jamvm-1.2.0/lib/Makefile.am	2004-10-14 19:00:33.358432400 +0200
+--- jamvm-1.2.3/lib/Makefile.am.orig	2004-12-24 05:27:04.000000000 +0100
++++ jamvm-1.2.3/lib/Makefile.am	2005-01-05 20:23:39.638728376 +0100
 @@ -1,4 +1,4 @@
 -GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
 +GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
  
  SUBDIRS = jamvm java
- EXTRA_DIST = classes.tar README
-diff -uNr jamvm-1.2.0.orig/lib/Makefile.in jamvm-1.2.0/lib/Makefile.in
---- jamvm-1.2.0.orig/lib/Makefile.in	2004-09-03 09:56:40.000000000 +0200
-+++ jamvm-1.2.0/lib/Makefile.in	2004-10-14 19:00:19.652516016 +0200
-@@ -120,7 +120,7 @@
- sysconfdir = @sysconfdir@
- target_alias = @target_alias@
+ EXTRA_DIST = classes.zip README
+--- jamvm-1.2.3/lib/Makefile.in.orig	2004-12-24 05:28:00.000000000 +0100
++++ jamvm-1.2.3/lib/Makefile.in	2005-01-05 20:26:52.666383712 +0100
+@@ -147,7 +147,7 @@
+ use_zip_no = @use_zip_no@
+ use_zip_yes = @use_zip_yes@
  with_classpath_install_dir = @with_classpath_install_dir@
 -GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
 +GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
- 
  SUBDIRS = jamvm java
- EXTRA_DIST = classes.tar README
-diff -uNr jamvm-1.2.0.orig/src/class.c jamvm-1.2.0/src/class.c
---- jamvm-1.2.0.orig/src/class.c	2004-09-09 00:53:04.000000000 +0200
-+++ jamvm-1.2.0/src/class.c	2004-10-14 19:00:53.636349688 +0200
-@@ -1230,9 +1230,9 @@
+ EXTRA_DIST = classes.zip README
+ noinst_DATA = inst_classes.zip
+--- jamvm-1.2.3/src/class.c.orig	2004-12-24 03:02:53.000000000 +0100
++++ jamvm-1.2.3/src/class.c	2005-01-05 20:27:31.395495992 +0100
+@@ -1254,9 +1254,9 @@
  
  char *setBootClassPath(char *cmdlne_bcp, char bootpathopt) {
  #ifdef USE_ZIP
--    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/classpath/glibj.zip";
-+    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/java/glibj.zip";
+-    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes.zip:"CLASSPATH_INSTALL_DIR"/share/classpath/glibj.zip";
++    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes.zip:"CLASSPATH_INSTALL_DIR"/share/java/glibj.zip";
  #else
 -    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/classpath";
 +    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/java";
