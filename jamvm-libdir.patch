@@ -1,0 +1,15 @@
+--- src/dll.c.orig	2004-08-30 12:41:50.000000000 +0200
++++ src/dll.c	2004-10-13 23:20:03.512205728 +0200
+@@ -256,7 +256,11 @@
+ 
+ char *getDllPath() {
+     char *env = getenv("LD_LIBRARY_PATH");
+-    char *cp_path = CLASSPATH_INSTALL_DIR"/lib/classpath";
++#if defined(__x86_64__) || defined(__arch64__)
++    char *cp_path = CLASSPATH_INSTALL_DIR"/lib64";
++#else
++    char *cp_path = CLASSPATH_INSTALL_DIR"/lib";
++#endif
+ 
+     if(env) {
+         char *buff = sysMalloc(strlen(env) + strlen(cp_path) + 2);
