@@ -22,11 +22,11 @@ specification, and includes support for object finalisation, the
 Java Native Interface (JNI) and the Reflection API.
 
 %description -l pl
-JamVM jest now± maszyn± wirtualn± Javy (JVM) zgodn± z 2. wersj±
+JamVM jest now± maszyn± wirtualn± Javy (JVM) zgodn± z 2 wersj±
 specyfikacji JVM (niebieska ksiêga). W porównaniu do wiêkszo¶ci innych
 VM (darmowych i komercyjnych) jest ekstremalnie ma³a, plik wykonywalny
 zajmuje na PowerPC jedynie ~110 kB, na Intelu 80 kB. Tym niemniej, w
-odró¿nieniu od innych ma³ych VM (np. KVM) jest zaprojektowana aby
+odró¿nieniu od innych ma³ych VM (np. KVM) jest zaprojektowana, aby
 obs³ugiwaæ pe³n± specyfikacjê, w³±czaj±c w to finalizacjê obiektów,
 Java Native Interface i Reflection API.
 
