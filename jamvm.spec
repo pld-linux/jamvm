@@ -14,8 +14,7 @@ Patch2:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
 BuildRequires:	autoconf
 Requires:	classpath >= 0.09
-# sparc, alpha, amd64, ia64  - not tested.
-ExclusiveArch:	arm i486 i586 i686 pentium3 pentium4 athlon ppc powerpc
+ExclusiveArch:	arm i486 i586 i686 pentium3 pentium4 athlon ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
