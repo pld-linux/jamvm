@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	7f5c459d6b900e0c8248900ab007289e
+# Source0-size:	223930
 Patch0:		%{name}-libdir.patch
 Patch1:		%{name}-javadir.patch
 Patch2:		%{name}-i786.patch
