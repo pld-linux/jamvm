@@ -56,6 +56,7 @@ Plik nag³ówkowy dla Java Native Interface.
 %{__autoconf}
 
 %configure \
+	%{?debug:--enable-trace} \
 	--with-classpath_install_dir=%{_prefix}
 
 %{__make}
