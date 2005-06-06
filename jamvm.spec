@@ -13,6 +13,7 @@ Patch2:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	unzip
 Requires:	classpath >= 0.12
 ExclusiveArch:	arm i486 i586 i686 pentium3 pentium4 athlon ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
