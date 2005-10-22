@@ -1,22 +1,26 @@
---- jamvm-1.2.3/lib/Makefile.am.orig	2004-12-24 05:27:04.000000000 +0100
-+++ jamvm-1.2.3/lib/Makefile.am	2005-01-05 20:23:39.638728376 +0100
-@@ -1,4 +1,4 @@
--GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
-+GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
+--- jamvm-1.3.3/lib/Makefile.am.orig	2005-09-12 02:55:26.000000000 +0200
++++ jamvm-1.3.3/lib/Makefile.am	2005-10-22 03:40:44.970188720 +0200
+@@ -1,5 +1,5 @@
+-@use_zip_yes@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
+-@use_zip_no@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/
++@use_zip_yes@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
++@use_zip_no@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/
  
- SUBDIRS = jamvm java
- EXTRA_DIST = classes.zip README
---- jamvm-1.2.3/lib/Makefile.in.orig	2004-12-24 05:28:00.000000000 +0100
-+++ jamvm-1.2.3/lib/Makefile.in	2005-01-05 20:26:52.666383712 +0100
-@@ -147,7 +147,7 @@
- use_zip_no = @use_zip_no@
- use_zip_yes = @use_zip_yes@
- with_classpath_install_dir = @with_classpath_install_dir@
--GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
-+GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
  SUBDIRS = jamvm java gnu
  EXTRA_DIST = classes.zip README
- noinst_DATA = inst_classes.zip
+--- jamvm-1.3.3/lib/Makefile.in.orig	2005-09-13 01:42:39.000000000 +0200
++++ jamvm-1.3.3/lib/Makefile.in	2005-10-22 03:40:57.947215912 +0200
+@@ -347,8 +347,8 @@
+ 	uninstall uninstall-am uninstall-info-am \
+ 	uninstall-info-recursive uninstall-local uninstall-recursive
+ 
+-@use_zip_yes@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/glibj.zip
+-@use_zip_no@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/classpath/
++@use_zip_yes@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/glibj.zip
++@use_zip_no@ GLIBJ_ZIP = ${with_classpath_install_dir}/share/java/
+ 
+ inst_classes.zip: classes.zip
+ 	ln -fs $< $@
 --- jamvm-1.2.3/src/class.c.orig	2004-12-24 03:02:53.000000000 +0100
 +++ jamvm-1.2.3/src/class.c	2005-01-05 20:27:31.395495992 +0100
 @@ -1254,9 +1254,9 @@
