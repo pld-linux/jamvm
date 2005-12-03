@@ -1,12 +1,12 @@
 Summary:	A small Java Virtual Machine
 Summary(pl):	Ma³a maszyna wirtualna Javy (JVM)
 Name:		jamvm
-Version:	1.4.0
+Version:	1.4.1
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/jamvm/%{name}-%{version}.tar.gz
-# Source0-md5:	b81458e427758bf88fd1681151cf1f82
+# Source0-md5:	ed79d6b60e50b007614831f8c28321ac
 Patch0:		%{name}-libdir.patch
 Patch1:		%{name}-javadir.patch
 Patch2:		%{name}-i786.patch
