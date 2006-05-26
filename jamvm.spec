@@ -1,12 +1,12 @@
 Summary:	A small Java Virtual Machine
 Summary(pl):	Ma³a maszyna wirtualna Javy (JVM)
 Name:		jamvm
-Version:	1.4.2
+Version:	1.4.3
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/jamvm/%{name}-%{version}.tar.gz
-# Source0-md5:	c7affcc61d4135ee838121a57b08de0f
+# Source0-md5:	9ce7d48304d59444877c51f763abfd3d
 Patch0:		%{name}-libdir.patch
 Patch1:		%{name}-javadir.patch
 Patch2:		%{name}-i786.patch
@@ -68,6 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -D src/jni.h $RPM_BUILD_ROOT%{_includedir}/jni.h
 
 %clean
 rm -rf $RPM_BUILD_ROOT
