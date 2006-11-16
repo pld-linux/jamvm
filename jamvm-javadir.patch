@@ -21,17 +21,18 @@
  
  inst_classes.zip: classes.zip
  	ln -fs $< $@
---- jamvm-1.2.3/src/class.c.orig	2004-12-24 03:02:53.000000000 +0100
-+++ jamvm-1.2.3/src/class.c	2005-01-05 20:27:31.395495992 +0100
-@@ -1254,9 +1254,9 @@
+--- jamvm-1.4.4/src/class.c.orig	2006-08-22 10:36:21.000000000 +0200
++++ jamvm-1.4.4/src/class.c	2006-11-16 19:59:13.590776750 +0100
+@@ -1591,10 +1591,10 @@
  
- char *setBootClassPath(char *cmdlne_bcp, char bootpathopt) {
  #ifdef USE_ZIP
--    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes.zip:"CLASSPATH_INSTALL_DIR"/share/classpath/glibj.zip";
-+    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes.zip:"CLASSPATH_INSTALL_DIR"/share/java/glibj.zip";
+ #define JAMVM_CLASSES INSTALL_DIR"/share/jamvm/classes.zip"
+-#define CLASSPATH_CLASSES CLASSPATH_INSTALL_DIR"/share/classpath/glibj.zip"
++#define CLASSPATH_CLASSES CLASSPATH_INSTALL_DIR"/share/java/glibj.zip"
  #else
--    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/classpath";
-+    char *dflt_bcp = INSTALL_DIR"/share/jamvm/classes:"CLASSPATH_INSTALL_DIR"/share/java";
+ #define JAMVM_CLASSES INSTALL_DIR"/share/jamvm/classes"
+-#define CLASSPATH_CLASSES CLASSPATH_INSTALL_DIR"/share/classpath"
++#define CLASSPATH_CLASSES CLASSPATH_INSTALL_DIR"/share/java"
  #endif
  
-     if(cmdlne_bcp) {
+ #define DFLT_BCP JAMVM_CLASSES":"CLASSPATH_CLASSES
