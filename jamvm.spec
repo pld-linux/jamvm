@@ -1,5 +1,5 @@
 Summary:	A small Java Virtual Machine
-Summary(pl):	Ma³a maszyna wirtualna Javy (JVM)
+Summary(pl.UTF-8):   MaÅ‚a maszyna wirtualna Javy (JVM)
 Name:		jamvm
 Version:	1.4.4
 Release:	1
@@ -27,25 +27,25 @@ other small VMs (e.g. KVM) it is designed to support the full
 specification, and includes support for object finalisation, the
 Java Native Interface (JNI) and the Reflection API.
 
-%description -l pl
-JamVM jest now± maszyn± wirtualn± Javy (JVM) zgodn± z 2 wersj±
-specyfikacji JVM (niebieska ksiêga). W porównaniu do wiêkszo¶ci innych
-VM (darmowych i komercyjnych) jest ekstremalnie ma³a, plik wykonywalny
+%description -l pl.UTF-8
+JamVM jest nowÄ… maszynÄ… wirtualnÄ… Javy (JVM) zgodnÄ… z 2 wersjÄ…
+specyfikacji JVM (niebieska ksiÄ™ga). W porÃ³wnaniu do wiÄ™kszoÅ›ci innych
+VM (darmowych i komercyjnych) jest ekstremalnie maÅ‚a, plik wykonywalny
 zajmuje na PowerPC jedynie ~110 kB, na Intelu 80 kB. Tym niemniej, w
-odró¿nieniu od innych ma³ych VM (np. KVM) jest zaprojektowana, aby
-obs³ugiwaæ pe³n± specyfikacjê, w³±czaj±c w to finalizacjê obiektów,
+odrÃ³Å¼nieniu od innych maÅ‚ych VM (np. KVM) jest zaprojektowana, aby
+obsÅ‚ugiwaÄ‡ peÅ‚nÄ… specyfikacjÄ™, wÅ‚Ä…czajÄ…c w to finalizacjÄ™ obiektÃ³w,
 Java Native Interface i Reflection API.
 
 %package devel
 Summary:	JNI development header file
-Summary(pl):	Plik nag³ówkowy dla JNI
+Summary(pl.UTF-8):   Plik nagÅ‚Ã³wkowy dla JNI
 Group:		Development/Languages/Java
 
 %description devel
 Java Native Interface development header file.
 
-%description devel -l pl
-Plik nag³ówkowy dla Java Native Interface.
+%description devel -l pl.UTF-8
+Plik nagÅ‚Ã³wkowy dla Java Native Interface.
 
 %prep
 %setup -q
