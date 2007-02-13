@@ -1,5 +1,5 @@
 Summary:	A small Java Virtual Machine
-Summary(pl.UTF-8):   Mała maszyna wirtualna Javy (JVM)
+Summary(pl.UTF-8):	Mała maszyna wirtualna Javy (JVM)
 Name:		jamvm
 Version:	1.4.4
 Release:	1
@@ -38,7 +38,7 @@ Java Native Interface i Reflection API.
 
 %package devel
 Summary:	JNI development header file
-Summary(pl.UTF-8):   Plik nagłówkowy dla JNI
+Summary(pl.UTF-8):	Plik nagłówkowy dla JNI
 Group:		Development/Languages/Java
 
 %description devel
