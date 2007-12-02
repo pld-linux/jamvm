@@ -1,21 +1,25 @@
 Summary:	A small Java Virtual Machine
 Summary(pl.UTF-8):	Mała maszyna wirtualna Javy (JVM)
 Name:		jamvm
-Version:	1.4.4
+Version:	1.5.0
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/jamvm/%{name}-%{version}.tar.gz
-# Source0-md5:	1b7bc9928c534412e062685a4191651d
+# Source0-md5:	a965452442cdbfc94caba57d0dd25a8f
 Patch0:		%{name}-libdir.patch
-Patch1:		%{name}-javadir.patch
-Patch2:		%{name}-i786.patch
+Patch1:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+%ifarch %{x8664} hppa
+BuildRequires:	libffi-devel
+%endif
 BuildRequires:	unzip
-Requires:	classpath >= 0.12
-ExclusiveArch:	arm i486 i586 i686 pentium3 pentium4 athlon ppc
+BuildRequires:	zlib-devel
+Requires:	classpath >= 0.19
+ExclusiveArch:	%{ix86} %{x8664} arm hppa mipsel ppc
+ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +44,7 @@ Java Native Interface i Reflection API.
 Summary:	JNI development header file
 Summary(pl.UTF-8):	Plik nagłówkowy dla JNI
 Group:		Development/Languages/Java
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Java Native Interface development header file.
@@ -51,7 +56,6 @@ Plik nagłówkowy dla Java Native Interface.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__aclocal}
@@ -79,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ACKNOWLEDGEMENTS AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/jamvm
 %attr(755,root,root) %{_libdir}/libjvm.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libjvm.so.0
 %{_datadir}/%{name}
 
 %files devel
