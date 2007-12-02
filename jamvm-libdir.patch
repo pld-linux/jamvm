@@ -6,23 +6,10 @@
  char *getBootDllPath() {
 -    return CLASSPATH_INSTALL_DIR"/lib/classpath";
 +#if defined(__x86_64__) || defined(__arch64__)
-+    return CLASSPATH_INSTALL_DIR"/lib64";
++    return CLASSPATH_INSTALL_DIR"/lib64/classpath";
 +#else
-+    return CLASSPATH_INSTALL_DIR"/lib";
++    return CLASSPATH_INSTALL_DIR"/lib/classpath";
 +#endif
  }
  
  char *getDllName(char *name) {
---- jamvm-1.4.3/src/os/linux/os.c.orig	2005-09-11 01:31:14.000000000 +0200
-+++ jamvm-1.4.3/src/os/linux/os.c	2005-10-22 03:37:20.298303576 +0200
-@@ -38,8 +38,8 @@
- }
- 
- char *nativeLibMapName(char *name) {
--   char *buff = sysMalloc(strlen(name) + sizeof("lib.so") + 1);
-+   char *buff = sysMalloc(strlen(name) + sizeof("lib.so.0") + 1);
- 
--   sprintf(buff, "lib%s.so", name);
-+   sprintf(buff, "lib%s.so.0", name);
-    return buff;
- }
