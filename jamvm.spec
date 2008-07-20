@@ -1,12 +1,12 @@
 Summary:	A small Java Virtual Machine
 Summary(pl.UTF-8):	Mała maszyna wirtualna Javy (JVM)
 Name:		jamvm
-Version:	1.5.0
+Version:	1.5.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/jamvm/%{name}-%{version}.tar.gz
-# Source0-md5:	a965452442cdbfc94caba57d0dd25a8f
+# Source0-md5:	5a82751b50391eb092c906ce64f3b6bf
 Patch0:		%{name}-libdir.patch
 Patch1:		%{name}-i786.patch
 URL:		http://jamvm.sourceforge.net/
@@ -15,6 +15,7 @@ BuildRequires:	automake
 %ifarch %{x8664} hppa
 BuildRequires:	libffi-devel
 %endif
+BuildRequires:	libtool
 BuildRequires:	unzip
 BuildRequires:	zlib-devel
 Requires:	classpath >= 0.19
@@ -58,6 +59,7 @@ Plik nagłówkowy dla Java Native Interface.
 %patch1 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 
@@ -74,6 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -D src/jni.h $RPM_BUILD_ROOT%{_includedir}/jni.h
+
+# unwanted symlink
+rm $RPM_BUILD_ROOT%{_libdir}/rt.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
